@@ -11,6 +11,7 @@ const MainOutput = ({ menu, setMenu }) => {
 
   useEffect(() => {
     setOpenTabs(menu, setMenu, location.pathname);
+    // eslint-disable-next-line
   }, [location.pathname]);
 
   return (

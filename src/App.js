@@ -20,9 +20,9 @@ export default function App() {
   const [menu, setMenu] = useState(menuItems);
   const [prevLink, setPrevLink] = useState();
 
-  function getMenuIndex(pathname) {
-    return menu.findIndex((i) => i.link === pathname);
-  }
+  // function getMenuIndex(pathname) {
+  //   return menu.findIndex((i) => i.link === pathname);
+  // }
 
   return (
     <div>
@@ -43,9 +43,9 @@ export default function App() {
             element={
               <KeepAlive
                 name={textInventory}
-                disabled={menu[getMenuIndex(linkInventory)].keepAliveDisabled}
+                // disabled={menu[getMenuIndex(linkInventory)].keepAliveDisabled}
               >
-                <Inventory/>
+                <Inventory />
               </KeepAlive>
             }
           />
@@ -54,7 +54,7 @@ export default function App() {
             element={
               <KeepAlive
                 name={textOrders}
-                disabled={menu[getMenuIndex(linkOrders)].keepAliveDisabled}
+                // disabled={menu[getMenuIndex(linkOrders)].keepAliveDisabled}
               >
                 <Orders />
               </KeepAlive>
@@ -65,7 +65,7 @@ export default function App() {
             element={
               <KeepAlive
                 name={textShipping}
-                disabled={menu[getMenuIndex(linkShipping)].keepAliveDisabled}
+                // disabled={menu[getMenuIndex(linkShipping)].keepAliveDisabled}
               >
                 <Shipping />
               </KeepAlive>

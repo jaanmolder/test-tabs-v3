@@ -1,0 +1,31 @@
+.body {
+  display: flex;
+}
+
+.menu {
+  border: 1px solid lightgrey;
+  background-color: #3a434c;
+  height: 500px;
+  position: absolute;
+  width: 100px;
+}
+
+.menuButton {
+  margin-top: 30px;
+  margin-left: 10px;
+  height: 40px;
+  width: 80px;
+  border: 0;
+  background-color: #3a434c;
+  color: white;
+}
+
+.menuButton :hover {
+  cursor: pointer;
+}
+
+.menuButtonIcon {
+  height: 30px;
+  width: 30px;
+  color: white;
+}

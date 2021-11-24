@@ -1,0 +1,63 @@
+.body {
+  display: flex;
+  margin-left: 102px;
+  width: calc(100vw - 120px);
+  height: 40px;
+  background-color: #ffffff;
+  z-index: 0;
+}
+
+.tabContainer {
+  display: flex;
+  z-index: 0;
+}
+
+.tab {
+  margin-top: 4px;
+  margin-left: 4px;
+  border: 1px solid #ced1d3;
+  border-radius: 5px 5px 0 0;
+  background: #e5e6e7;
+  color: #3a434c;
+  padding-left: 10px;
+  width: 250px;
+  height: 35px;
+  z-index: 1;
+}
+
+.tabActive {
+  margin-top: 4px;
+  margin-left: 4px;
+  border: 1px solid #ced1d3;
+  border-radius: 5px 5px 0 0;
+  background: #ffffff;
+  color: #3a434c;
+  padding-left: 10px;
+  width: 250px;
+  height: 35px;
+  /*position: relative;*/
+  z-index: 1;
+}
+
+.tabText {
+  position: relative;
+  top: 8px;
+}
+
+.closeButton {
+  position: relative;
+  top: 12px;
+  left: -25px;
+  z-index: 2;
+  border: 0;
+}
+
+.closeButtonStyleActive {
+  border: 0;
+  background-color: #ffffff;
+}
+
+.closeButtonStyle {
+  border: 0;
+  background-color: #e5e6e7;
+}

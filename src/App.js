@@ -1,25 +1,78 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import { menuItems } from "./components/menu-param";
+import "./App.css";
+import AppMain from "./components/app-main";
+import { Route, Routes } from "react-router-dom";
+import {
+  linkInventory,
+  linkOrders,
+  linkShipping,
+  textInventory,
+  textOrders,
+  textShipping,
+} from "./setup/params";
+import { KeepAlive } from "react-keep-alive";
+import Orders from "./pages/orders";
+import Inventory from "./pages/inventory";
+import Shipping from "./pages/shipping";
 
-function App() {
+export default function App() {
+  const [menu, setMenu] = useState(menuItems);
+  const [prevLink, setPrevLink] = useState();
+
+  function getMenuIndex(pathname) {
+    return menu.findIndex((i) => i.link === pathname);
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+    <div>
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <AppMain
+              menu={menu}
+              setMenu={setMenu}
+              prevLink={prevLink}
+              setPrevLink={setPrevLink}
+            />
+          }
         >
-          Learn React
-        </a>
-      </header>
+          <Route
+            path={linkInventory}
+            element={
+              <KeepAlive
+                name={textInventory}
+                disabled={menu[getMenuIndex(linkInventory)].keepAliveDisabled}
+              >
+                <Inventory/>
+              </KeepAlive>
+            }
+          />
+          <Route
+            path={linkOrders}
+            element={
+              <KeepAlive
+                name={textOrders}
+                disabled={menu[getMenuIndex(linkOrders)].keepAliveDisabled}
+              >
+                <Orders />
+              </KeepAlive>
+            }
+          />
+          <Route
+            path={linkShipping}
+            element={
+              <KeepAlive
+                name={textShipping}
+                disabled={menu[getMenuIndex(linkShipping)].keepAliveDisabled}
+              >
+                <Shipping />
+              </KeepAlive>
+            }
+          />
+        </Route>
+      </Routes>
     </div>
   );
 }
-
-export default App;

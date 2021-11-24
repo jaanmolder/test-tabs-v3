@@ -3,7 +3,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import {
   setActiveTab,
   setClosedTabs,
-  setKeepAliveHandler,
+  // setKeepAliveHandler,
 } from "./func/tab-func";
 import { setPreviousLink } from "./func/navigation-func";
 
@@ -16,25 +16,21 @@ const Tabs = ({ menu, setMenu, prevLink, setPrevLink }) => {
 
   const clickTabHandler = (link) => {
     // console.log("!!TAB CLICK");
-    setKeepAliveHandler(menu, setMenu, link, false);
+    // setKeepAliveHandler(menu, setMenu, link, false);
     setPreviousLink(prevLink, setPrevLink, currentPath);
     setActiveTab(menu, setMenu, link);
     navigate(link);
   };
 
   const closeTabHandler = (link) => {
-    setKeepAliveHandler(menu, setMenu, link, true);
+    // setKeepAliveHandler(menu, setMenu, link, true);
     // console.log("!!CLOSE CLICK");
     // console.log(prevLink);
     if (openMenu.length > 0) {
       const firstOpen = openMenu[0].link;
       setClosedTabs(menu, setMenu, link);
-      // setActiveTab(menu, setMenu, prevLink);
-      if (firstOpen) {
-        navigate(firstOpen);
-      } else {
-        navigate("/");
-      }
+      setActiveTab(menu, setMenu, prevLink);
+      navigate(firstOpen);
     }
   };
 
